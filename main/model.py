@@ -1,63 +1,53 @@
 import pathlib
-import sys
+# model.py contains the functions to calculate - 
+# 1) size of the file - returns the size of file
+# 2) number of lines in file - returns number of lines in the file
+# 3) number_of words - retruns number of words in the file
+# 4) number of chars - returns number of chars in the file
+# All the function take the path of the file as an argument and print the respective results
+# file is opened using Pathlib library
 
 def size_of_file(path:str):
     file = pathlib.Path(path)
-    if(file.is_file()==True):
-        print(file.stat().st_size)
+    if(file.is_file()==True): # checking if files exists or not
+        return (file.stat().st_size) # st_size attribute give the size of the file in bytes, using end =" " wil makes sure things are printed in one line
     else:
-        print(f"No file exsists at {path}")
+        print(f"No file exsists at {path}") 
 
 def number_of_lines(path:str):
     file = pathlib.Path(path)
     no_of_lines = 0
-    with file.open(mode='r' , encoding='utf-8') as f:
-        for i in f.readlines():
-            no_of_lines+=1
-    print(no_of_lines)
+    if(file.is_file()==True):
+        with file.open(mode='r' , encoding='utf-8') as f: # file is opened in read mode and using UTF-8 for encoding and decoding of the file
+            for i in f.readlines(): #f.readlines() returns a list of lines in the file 
+                no_of_lines+=1
+        return(no_of_lines)
+    else:
+         print(f"No such file exsists at {path}")
 
 def number_of_words(path:str):
     file = pathlib.Path(path)
     if (file.is_file() == True):
-        with file.open(mode='r',encoding="utf-8") as f:
-            text = f.read().split()
-            print(len(text))
+        with file.open(mode='r',encoding="utf-8") as f:# file is opened in read mode and using UTF-8 for encoding and decoding of the file
+            text = f.read().split() # f.read() returns a string and spliting tthe string when ever there is whitespace
+        return(len(text))
     else:
-        print(f"No file exsists at {path}")
+        print(f"No such file exsists at {path}")
 
-def number_of_char(path:str):
+def number_of_chars(path:str):
     file = pathlib.Path(path)
-    chars = 0
+    n_chars = 0
     if (file.is_file() == True):
         with file.open(mode='r',encoding="utf-8") as f:
             for word in f:
-              chars += len(word)
-        print(chars)
+              n_chars += len(word) # we calculate length of each word and add it to the n_chars variable
+        return(n_chars)
     else:
-        print(f"No file exsists at {path}")
-
-def get_number_of_characters(file):
-    try:
-        f = open(file, 'r')
-        data = f.read()
-        f.close()
-        number_of_characters = len(data)
-        return number_of_characters
-    except FileNotFoundError:
-        print('There is no such file or directory')
-        sys.exit()
+        print(f"No such file exsists at {path}")
 
 
-#339292
 
     
 
 
-if __name__== "__main__":
-    #size_of_file("/Users/bunny/projects/My_Project_Portfolio/Unix_CL_tool/test.txt")
-    #number_of_lines("/Users/bunny/projects/My_Project_Portfolio/Unix_CL_tool/test.txt")
-    #number_of_words("/Users/bunny/projects/My_Project_Portfolio/Unix_CL_tool/test.txt")
-    number_of_char("/Users/bunny/projects/My_Project_Portfolio/Unix_CL_tool/big.txt")
-    #file = pathlib.Path("/Users/bunny/projects/My_Project_Portfolio/Unix_CL_tool/test.txt")
-    #print(get_number_of_characters(file))
 
