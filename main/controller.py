@@ -63,24 +63,25 @@ def ccwc():
         ## still have to write code for the case where text of the file is given in input
 
     else:
-        if(not args.c and not args.l and not args.w and not args.m):
+        if not args.byte and not args.line and not args.word and not args.char:
             print(model.number_of_lines(path), end=" ")
             print(model.number_of_words(path), end=" ")
             print(model.number_of_chars(path), end=" ")
         else:
-            if(args.c):
+            if(args.byte):
                 print(model.size_of_file(path), end=" ")
 
-            if(args.l):
+            if(args.line):
                 print(model.number_of_lines(path), end=" ")
 
-            if(args.w):
+            if(args.word):
                 print(model.number_of_words(path), end=" ")
 
-            if(args.m):
+            if(args.char):
                 print(model.number_of_chars(path), end=" ")
 
         print(args.path)
+
         
 
 if __name__ == "__main__":

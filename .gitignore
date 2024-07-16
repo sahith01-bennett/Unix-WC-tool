@@ -1,2 +1,4 @@
 # virtualenv
 pyenv3.12/
+# pycache
+main/__pycache__/
