@@ -17,8 +17,6 @@ To use this tool, you need to have Python installed on your system. Clone this r
 
 ```bash
 git clone https://github.com/sahith01-bennett/Unix-WC-tool.git
-
-cd file-statistics-tool
 ```
 ## Usage
 To use the tool, run the controller.py script from your terminal with the desired options:
