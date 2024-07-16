@@ -19,7 +19,7 @@ To use this tool, you need to have Python installed on your system. Clone this r
 git clone https://github.com/sahith01-bennett/Unix-WC-tool.git
 ```
 ## Usage
-To use the tool, run the controller.py script from your terminal with the desired options:
+To use the tool, run the controller.py(in main folder) script from your terminal with the desired options:
 ```bash
 python controller.py [options] path_to_file
 ```
