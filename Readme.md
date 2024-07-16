@@ -25,11 +25,11 @@ python controller.py [options] path_to_file
 ```
 
 ### Options
--m, --char : Prints the number of characters in the file.
--c, --byte : Prints the size of the file.
--l, --line : Prints the number of lines in the file.
--w, --word : Prints the number of words in the file.
-If no options are provided, the tool will print the number of lines, words, and characters by default.
+-m, --char : Prints the number of characters in the file.  
+-c, --byte : Prints the size of the file.  
+-l, --line : Prints the number of lines in the file.  
+-w, --word : Prints the number of words in the file.  
+If no options are provided, the tool will print the number of lines, words, and characters by default.  
 
 
 ### Examples
