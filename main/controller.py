@@ -4,34 +4,63 @@ import sys
 
 
 def ccwc():
+    """
+    This function parses command-line arguments to determine which properties
+    of the file to count and print. It supports counting the number of lines,
+    words, characters, and bytes in a file. If no specific property is requested,
+    it prints the number of lines, words, and characters by default.
+    """
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("path",nargs="?")
+    parser.add_argument(
+        "path",
+        type=str,
+        nargs="?",
+        help="take path of the file"
+    )    
 
-    parser.add_argument("-c",action="store_true")
+    parser.add_argument(
+        "-c",
+        "--byte",
+        action="store_true",
+        help="print the byte counts"
+    )
 
-    parser.add_argument("-l",action="store_true")
+    parser.add_argument(
+        "-l",
+        "--line",
+        action="store_true",
+        help="prints number of lines"
+    )
 
-    parser.add_argument("-w",action="store_true")
+    parser.add_argument(
+        "-w",
+        "--word",
+        action="store_true",
+        help="prints number of words"
+    )
 
-    parser.add_argument("-m",action="store_true")
+    parser.add_argument(
+        "-m",
+        "--char",
+        action="store_true",
+        help="prints number of characters"
+    )
 
 
     args = parser.parse_args()
 
     path = args.path
 
-    if(not path):
-        print("please enter the path of the file")
-        sys.exit()
-    elif (path.isspace()):
+   
+    if (path.isspace()):
         print("please enter the path of the file")
         sys.exit()
 
 
     if (path == None):
         text = sys.stdin.read()
-        ## still have to write code for the file is give in input
+        ## still have to write code for the case where text of the file is given in input
 
     else:
         if(not args.c and not args.l and not args.w and not args.m):

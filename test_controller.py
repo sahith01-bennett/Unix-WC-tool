@@ -2,8 +2,13 @@ import unittest
 import subprocess
 from main import model
 
-class TestCcwc(unittest.TestCase):
 
+class TestCcwc(unittest.TestCase):
+    """
+    TestCcwc is a test case class for testing the functionalities of the `model` module.
+    It utilizes the `unittest` framework to validate the correctness of line, word, and character
+    counting functions by comparing their outputs with those of the Unix `wc` command.
+    """
     def setUp(self) -> None:
         self.path = ["test_data/big.txt","test_data/test1.txt"]
         result =  subprocess.run(["wc","test_data/big.txt"],capture_output="True",encoding='utf-8')
